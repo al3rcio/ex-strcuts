@@ -11,33 +11,45 @@ typedef struct
    int nota3;
 } notas;
 
-
-typedef struct
+typedef struct 
 {
-    char[STR] nome;
+    char nome[STR];
     int matricula;
     notas nota;
 } aluno;
 
-void InserindoDados();
+void InsereDados();
 void ImprimeDados();
 aluno BuscaMatricula(int numeroMatricula);
 
+aluno turma[TURMA]; 
+
 int main()
 {
-    InserindoDados();
-
+    InsereDados();
+    printf("********\n");
+    ImprimeDados();
     return 0;
 }
 
-void InserindoDados()
+void InsereDados()
 {
-    // TODO
+    for (int i = 0; i < TURMA; i++)
+    {
+        printf("Insira o nome do aluno: ");
+        scanf("%s", turma[i].nome);
+        printf("Insira o número de matrícula: ");
+        scanf("%i", &turma[i].matricula);
+    }
 }
 
 void ImprimeDados()
 {
-    // TODO
+    for (int i = 0; i < TURMA; i++)
+    {
+        printf("Nome: %s\n", turma[i].nome);
+        printf("Matrícula: %i\n", turma[i].matricula);
+    }
 }
 
 aluno BuscaMatricula(int numeroMatricula)
@@ -46,5 +58,5 @@ aluno BuscaMatricula(int numeroMatricula)
 
     // TODO
 
-    return dadosAluno
+    return dadosAluno;
 }
