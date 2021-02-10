@@ -1,12 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define TURMA 2 // testes
+// definindo constantes
+#define TURMA 20
 #define STR 20
 #define TOTAL 3
 
+// bool para testar sobre a busca de matrícula
 int encontrado = 0;
 
+// definindo estruturas
 typedef struct
 {
    float nota1;
@@ -31,6 +34,7 @@ void ImprimeMediaAluno(aluno notas[], int tamanhoTurma);
 float CalulaMediaTurma(aluno media[], int tamanhoTurma);
 aluno BuscaMatricula(int numeroMatricula, aluno buscaTurma[], int tamanhoTurma);
 
+// variavel global principal
 aluno turma[TURMA]; 
 
 int main()
@@ -61,6 +65,7 @@ int main()
     return 0;
 }
 
+// funções diversas
 void InsereDados()
 {
     for (int i = 0; i < TURMA; i++)
