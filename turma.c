@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define TURMA 20
+#define TURMA 2 // testes
 #define STR 20
 #define TOTAL 3
+
+int encontrado = 0;
 
 typedef struct
 {
@@ -23,13 +25,11 @@ typedef struct
 // declarando funções
 void InsereDados();
 void ImprimeDados();
-aluno BuscaMatricula(int numeroMatricula);
 void InsereNotas();
 float CalculaMediaAluno(aluno notas[], int tamanhoTurma);
 void ImprimeMediaAluno(aluno notas[], int tamanhoTurma);
 float CalulaMediaTurma(aluno media[], int tamanhoTurma);
-aluno BuscaMatricula(int numeroMatricula);
-
+aluno BuscaMatricula(int numeroMatricula, aluno buscaTurma[], int tamanhoTurma);
 
 aluno turma[TURMA]; 
 
@@ -44,6 +44,20 @@ int main()
     printf("********\n");
     float mediaTurma = CalulaMediaTurma(turma, TURMA);
     printf("A média da turma é %.2f\n", mediaTurma);
+    printf("********\n");
+    int buscaMatricula;
+    printf("Buscar Matrícula: ");
+    scanf("%i", &buscaMatricula);
+    aluno busca = BuscaMatricula(buscaMatricula, turma, TURMA);
+    if (encontrado == 0)
+    {
+        printf("Matrícula não encontrada\n");
+    }
+    else
+    {
+        printf("Matrícula pertence a %s\n", busca.nome);
+    }
+    
     return 0;
 }
 
@@ -123,11 +137,20 @@ float CalulaMediaTurma(aluno media[], int tamanhoTurma)
     return mediaTurma;
 }
 
-aluno BuscaMatricula(int numeroMatricula)
+aluno BuscaMatricula(int numeroMatricula, aluno buscaTurma[], int tamanhoTurma)
 {
-    aluno dadosAluno;
+    //aluno dadosAluno[tamanhoTurma];
+    
+    
+    for (int i = 0; i < tamanhoTurma; i++)
+    {
+        if (numeroMatricula == buscaTurma[i].matricula)
+        {
+            //char nome[STR] = buscaTurma[i].nome;
+            encontrado = 1;
+            return buscaTurma[i];
+        }
+    }
 
-    // TODO
-
-    return dadosAluno;
+    //return dadosAluno;
 }
