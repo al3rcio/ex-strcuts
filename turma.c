@@ -21,6 +21,9 @@ typedef struct
 void InsereDados();
 void ImprimeDados();
 aluno BuscaMatricula(int numeroMatricula);
+void InsereNotas();
+float CalculaMedia(notas notas);
+aluno BuscaMatricula(int numeroMatricula);
 
 aluno turma[TURMA]; 
 
@@ -29,6 +32,7 @@ int main()
     InsereDados();
     printf("********\n");
     ImprimeDados();
+    InsereNotas();
     return 0;
 }
 
@@ -50,6 +54,28 @@ void ImprimeDados()
         printf("Nome: %s\n", turma[i].nome);
         printf("Matrícula: %i\n", turma[i].matricula);
     }
+}
+
+void InsereNotas()
+{     
+    for (int i = 0; i < TURMA; i++)
+    {
+        printf("Informe as notas 1, 2 e 3 do aluno %s\n", turma[i].nome);
+        printf("Nota 1: ");
+        scanf("%i", &turma[i].nota.nota1);
+        printf("Nota 2: ");
+        scanf("%i", &turma[i].nota.nota2);
+        printf("Nota 3: ");
+        scanf("%i", &turma[i].nota.nota3);
+    }    
+}
+
+float CalculaMedia(notas notas)
+{
+    float media;
+    
+
+    return media;
 }
 
 aluno BuscaMatricula(int numeroMatricula)
