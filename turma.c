@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define TURMA 2
+#define TURMA 20
 #define STR 20
 #define TOTAL 3
 
@@ -27,7 +27,7 @@ aluno BuscaMatricula(int numeroMatricula);
 void InsereNotas();
 float CalculaMediaAluno(aluno notas[], int tamanhoTurma);
 void ImprimeMediaAluno(aluno notas[], int tamanhoTurma);
-float CalulaMediaTurma(float media[], int tamanhoTurma);
+float CalulaMediaTurma(aluno media[], int tamanhoTurma);
 aluno BuscaMatricula(int numeroMatricula);
 
 
@@ -41,8 +41,9 @@ int main()
     InsereNotas();
     CalculaMediaAluno(turma, TURMA);
     ImprimeMediaAluno(turma, TURMA);
-
-
+    printf("********\n");
+    float mediaTurma = CalulaMediaTurma(turma, TURMA);
+    printf("A média da turma é %.2f\n", mediaTurma);
     return 0;
 }
 
@@ -57,7 +58,7 @@ void InsereDados()
     }
 }
 
-void ImprimeDados()
+void ImprimeDados() 
 {
     for (int i = 0; i < TURMA; i++)
     {
@@ -108,14 +109,14 @@ void ImprimeMediaAluno(aluno notas[], int tamanhoTurma)
     }
 }
 
-float CalulaMediaTurma(float media[], int tamanhoTurma)
+float CalulaMediaTurma(aluno media[], int tamanhoTurma)
 {
     float mediaTurma;
     float soma = 0;
 
     for (int i = 0; i < tamanhoTurma; i++)
     {
-        soma = soma + media[i];
+        soma = soma + media[i].nota.media;
     }
 
     mediaTurma = soma / (float) tamanhoTurma;
