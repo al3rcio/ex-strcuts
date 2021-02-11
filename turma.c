@@ -7,7 +7,7 @@
 #define TOTAL 3
 
 // bool para testar sobre a busca de matrícula
-int encontrado = 0;
+int encontrado = 0; // 0 == não encontrado || 1 == encontrado
 
 // definindo estruturas
 typedef struct
@@ -144,18 +144,12 @@ float CalulaMediaTurma(aluno media[], int tamanhoTurma)
 
 aluno BuscaMatricula(int numeroMatricula, aluno buscaTurma[], int tamanhoTurma)
 {
-    //aluno dadosAluno[tamanhoTurma];
-    
-    
     for (int i = 0; i < tamanhoTurma; i++)
     {
         if (numeroMatricula == buscaTurma[i].matricula)
         {
-            //char nome[STR] = buscaTurma[i].nome;
             encontrado = 1;
             return buscaTurma[i];
         }
     }
-
-    //return dadosAluno;
 }
